@@ -1,29 +1,28 @@
 {
-  "name": "dev-by-vue",
-  "version": "0.0.1",
-  "main": "src/main.js",
-  "scripts": {
-    "release": "node_modules/.bin/webpack"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yelloxing/Dev-By-Vue.git"
-  },
-  "author": "yelloxing",
-  "license": "MIT",
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "css-loader": "^0.28.11",
-    "node-sass": "^4.7.2",
-    "sass-loader": "^6.0.7",
-    "url-loader": "^1.0.1",
-    "vue-loader": "^14.2.1",
-    "vue-template-compiler": "^2.5.16",
-    "webpack": "^2.4.1"
-  },
-  "dependencies": {
-    "vue": "^2.5.16",
-    "vue-router": "^3.0.1"
-  }
+    "name": "dev-by-vue",
+    "version": "0.0.1",
+    "main": "src/main.js",
+    "scripts": {
+        "release": "node_modules/.bin/webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yelloxing/Dev-By-Vue.git"
+    },
+    "author": "yelloxing",
+    "license": "MIT",
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.4",
+        "css-loader": "^0.28.11",
+        "node-sass": "^4.7.2",
+        "sass-loader": "^6.0.7",
+        "vue-loader": "^14.2.1",
+        "vue-template-compiler": "^2.5.16",
+        "webpack": "^2.4.1"
+    },
+    "dependencies": {
+        "vue": "^2.5.16",
+        "vue-router": "^3.0.1"
+    }
 }

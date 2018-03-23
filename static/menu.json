@@ -1,10 +1,13 @@
 {
-    "name": "开发用例 - Vue",
+    "name": "菜单",
     "list": [{
-        "name": "指令",
+        "name":"欢迎页面",
+        "path":"welcome"
+    },{
+        "name": "过滤器",
         "list": [{
-            "name": "日历组件",
-            "path": "calendar"
+            "name": "常见过滤器",
+            "path": "filter"
         }]
     }]
 }

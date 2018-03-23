@@ -11,7 +11,9 @@
 <script>
 export default {
   mounted: function() {
+    //获取菜单数据（本来应该发HTTP请求的数据，这里为了方便就直接require）
     const menu = require("../static/menu.json");
+    //生成菜单HTML
     (function appendNode(item, deep) {
       if (item.list && item.list.length > 0) {
         var ulT = $$('ul[deep="' + deep + '"]');
@@ -28,9 +30,26 @@ export default {
         }
       } else {
         var ulT = $$('ul[deep="' + deep + '"]');
-        $$(ulT[ulT.length - 1]).append("<li><i>" + item.name + "</i></li>");
+        $$(ulT[ulT.length - 1]).append(
+          "<li class='leaf'><i path=" +
+            item.path +
+            ">" +
+            item.name +
+            "</i></li>"
+        );
       }
     })(menu, 1);
+    //添加点击事件
+    $$(".root>.menu li>i").bind("click", function() {
+      var ul = $$(this).nextAll("ul");
+      if (ul.length > 0) {
+        //打开或关闭子菜单
+        ul.parent("li").toggleClass("notOpen");
+      } else {
+        //打开页面
+        window.location.href = "#/" + $$(this).attr("path");
+      }
+    });
   }
 };
 </script>
@@ -45,37 +64,22 @@ export default {
     vertical-align: top;
   }
   & > .menu {
+    user-select: none;
     border-right: 0.07rem solid #f5f5f5;
     height: 100vh;
     vertical-align: top;
     font-size: 0.16rem;
     display: inline-block;
     width: 2.9rem;
+    li.notOpen {
+      & > ul {
+        display: none;
+      }
+    }
     [deep] {
       margin-left: 1em;
       margin-left: 1em;
       list-style-type: none;
-      li {
-        i {
-          font-style: normal;
-        }
-        &[hadchild="Y"] {
-          & > i {
-            &:before {
-              background-image: url("./assets/menu-icon.png");
-              content: "";
-              width: 1em;
-              height: 1em;
-              display: inline-block;
-              position: absolute;
-              top: 0.5em;
-              left: -1em;
-              background-position-y: top;
-              z-index: 2;
-            }
-          }
-        }
-      }
       &:not([deep="1"]) {
         li {
           &:before {
@@ -94,7 +98,6 @@ export default {
             & > i {
               font-style: normal;
               &:before {
-                background-image: url("./assets/menu-icon.png");
                 content: "";
                 width: 1em;
                 height: 1em;
@@ -112,7 +115,46 @@ export default {
       li {
         position: relative;
         line-height: 2em;
-        position: relative;
+        cursor: pointer;
+        i {
+          font-style: normal;
+        }
+        &.leaf {
+          color: #795548;
+          & > i {
+            &:before {
+              content: " ";
+              width: 0.6em;
+              height: 0.6em;
+              display: inline-block;
+              border-radius: 50%;
+              background-color: #795548;
+              position: absolute;
+              top: 0.5em;
+              left: -0.5em;
+              top: 0.7em;
+              left: -0.7em;
+            }
+          }
+        }
+        &[hadchild="Y"] {
+          color: #666666;
+          & > i {
+            padding-left: 0.5em;
+            &:before {
+              background-image: url("./assets/menu-icon.png");
+              content: "";
+              width: 1em;
+              height: 1em;
+              display: inline-block;
+              position: absolute;
+              top: 0.5em;
+              left: -1em;
+              background-position-y: top;
+              z-index: 2;
+            }
+          }
+        }
         &[hadchild="Y"]:not(:last-child):after {
           content: "";
           border-right: 1px solid gray;

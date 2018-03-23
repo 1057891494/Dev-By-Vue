@@ -4,7 +4,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import Welcome from '../components/Welcome.vue';
-import Calendar from '../components/Calendar.vue';
+import Filter from '../components/Filter.vue';
 
 const router = new VueRouter({
     routes: [{
@@ -16,8 +16,8 @@ const router = new VueRouter({
             component: Welcome
         },
         {
-            path: '/calendar',
-            component: Calendar
+            path: '/filter',
+            component: Filter
         }
     ]
 });
