@@ -5,7 +5,7 @@
             <ui-form name='myform1' v-on:myform1Submit='doSubmit("表单提交用例")'>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6" v-star>
                             <label for="idcard">身份证</label>
                             <input type="text" id="idcard" name='idcard' v-model='param.idcard' required/>
                         </div>

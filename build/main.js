@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 37);
+/******/ 	return __webpack_require__(__webpack_require__.s = 38);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -11679,7 +11679,7 @@ process.umask = function() { return 0; };
 /* harmony default export */ __webpack_exports__["a"] = ({
   mounted: function () {
     //获取菜单数据（本来应该发HTTP请求的数据，这里为了方便就直接require）
-    const menu = __webpack_require__(36);
+    const menu = __webpack_require__(37);
     //生成菜单HTML
     (function appendNode(item, deep) {
       if (item.list && item.list.length > 0) {
@@ -11806,10 +11806,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App_vue__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__module_filter_numberChineseFtr__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__module_filter_moneyUpFtr__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__module_filter_numberChineseFtr__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__module_filter_moneyUpFtr__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__module_component_ui_form__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__module_directive_v_star__ = __webpack_require__(33);
 
 
 
@@ -11821,6 +11822,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 // 组件
+
+
+// 指令
 
 
 var vm = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
@@ -12368,35 +12372,44 @@ var render = function() {
           [
             _c("div", { staticClass: "container" }, [
               _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("label", { attrs: { for: "idcard" } }, [_vm._v("身份证")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.param.idcard,
-                        expression: "param.idcard"
-                      }
-                    ],
-                    attrs: {
-                      type: "text",
-                      id: "idcard",
-                      name: "idcard",
-                      required: ""
-                    },
-                    domProps: { value: _vm.param.idcard },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                _c(
+                  "div",
+                  {
+                    directives: [{ name: "star", rawName: "v-star" }],
+                    staticClass: "col-md-6"
+                  },
+                  [
+                    _c("label", { attrs: { for: "idcard" } }, [
+                      _vm._v("身份证")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.param.idcard,
+                          expression: "param.idcard"
                         }
-                        _vm.$set(_vm.param, "idcard", $event.target.value)
+                      ],
+                      attrs: {
+                        type: "text",
+                        id: "idcard",
+                        name: "idcard",
+                        required: ""
+                      },
+                      domProps: { value: _vm.param.idcard },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.param, "idcard", $event.target.value)
+                        }
                       }
-                    }
-                  })
-                ]),
+                    })
+                  ]
+                ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-6" }, [
                   _c("label", { attrs: { for: "name" } }, [_vm._v("姓名")]),
@@ -15482,6 +15495,30 @@ const uiForm = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('ui-form', 
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 
 
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.directive('star', {
+    bind: function (el, binding, vnode, oldVnode) {
+        if ($$(el).find('[required]').length > 0) {
+            console.log('//如果是必输项 bind');
+        }
+    },
+    update: function (el, binding, vnode, oldVnode) {
+        if ($$(el).find('[required]').length > 0) {
+            console.log('//如果是必输项 update');
+        } else {
+            console.log('//如果不是必输项 update');
+        }
+    }
+});
+
+/***/ }),
+/* 34 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+
+
 /**
  * @author yelloxing
  * 2018-03-23
@@ -15511,7 +15548,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.filter('moneyUpFtr', function (input
 });
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15573,7 +15610,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.filter('numberChineseFtr', function 
 });
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15612,13 +15649,13 @@ const router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 /* harmony default export */ __webpack_exports__["a"] = (router);
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports) {
 
 module.exports = {"name":"菜单","list":[{"name":"欢迎页面","path":"welcome"},{"name":"零碎说明","list":[{"name":"过滤器","list":[{"name":"常见过滤器","path":"filter"}]}]},{"name":"大局细节说明","list":[{"name":"form表单提交","path":"form"}]}]}
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(9);
