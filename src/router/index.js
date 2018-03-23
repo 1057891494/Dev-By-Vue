@@ -1,10 +1,12 @@
 import Vue from 'vue';
+
 import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
 import Welcome from '../components/Welcome.vue';
 import Filter from '../components/Filter.vue';
+import Form from '../components/Form.vue';
 
 const router = new VueRouter({
     routes: [{
@@ -18,6 +20,10 @@ const router = new VueRouter({
         {
             path: '/filter',
             component: Filter
+        },
+        {
+            path: '/form',
+            component: Form
         }
     ]
 });

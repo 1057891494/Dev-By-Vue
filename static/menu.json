@@ -1,13 +1,22 @@
 {
     "name": "菜单",
     "list": [{
-        "name":"欢迎页面",
-        "path":"welcome"
-    },{
-        "name": "过滤器",
+        "name": "欢迎页面",
+        "path": "welcome"
+    }, {
+        "name": "零碎说明",
         "list": [{
-            "name": "常见过滤器",
-            "path": "filter"
+            "name": "过滤器",
+            "list": [{
+                "name": "常见过滤器",
+                "path": "filter"
+            }]
+        }]
+    }, {
+        "name": "大局细节说明",
+        "list": [{
+            "name": "form表单提交",
+            "path": "form"
         }]
     }]
 }
