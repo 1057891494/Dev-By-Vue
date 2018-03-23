@@ -2,7 +2,7 @@
     <article>
         <section>
             <header>基础的表单提交用例</header>
-            <ui-form name='myform1' v-on:triggerSubmit='doSubmit'>
+            <ui-form name='myform1' v-on:myform1Submit='doSubmit("表单提交用例")'>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
@@ -11,11 +11,11 @@
                         </div>
                         <div class="col-md-6">
                             <label for="name">姓名</label>
-                            <input type="text" id="name" name='name' v-model='param.name' required/>
+                            <input type="text" id="name" name='name' v-model='param.name'/>
                         </div>
                         <div class="col-md-6">
                             <label for="age">年龄</label>
-                            <input type="text" id="age" name='age' v-model='param.age' required/>
+                            <input type="text" id="age" name='age' v-model='param.age'/>
                         </div>
                     </div>
                 </div>
@@ -38,8 +38,8 @@ export default {
     doReset() {
       this.param = {};
     },
-    doSubmit(name) {
-      alert("[" + name + "]提交表单！");
+    doSubmit(info) {
+      alert("[" + info + "]提交表单！");
     }
   }
 };

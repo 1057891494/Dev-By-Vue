@@ -11791,8 +11791,8 @@ process.umask = function() { return 0; };
     doReset() {
       this.param = {};
     },
-    doSubmit(name) {
-      alert("[" + name + "]提交表单！");
+    doSubmit(info) {
+      alert("[" + info + "]提交表单！");
     }
   }
 });
@@ -12357,7 +12357,14 @@ var render = function() {
         _vm._v(" "),
         _c(
           "ui-form",
-          { attrs: { name: "myform1" }, on: { triggerSubmit: _vm.doSubmit } },
+          {
+            attrs: { name: "myform1" },
+            on: {
+              myform1Submit: function($event) {
+                _vm.doSubmit("表单提交用例")
+              }
+            }
+          },
           [
             _c("div", { staticClass: "container" }, [
               _c("div", { staticClass: "row" }, [
@@ -12403,12 +12410,7 @@ var render = function() {
                         expression: "param.name"
                       }
                     ],
-                    attrs: {
-                      type: "text",
-                      id: "name",
-                      name: "name",
-                      required: ""
-                    },
+                    attrs: { type: "text", id: "name", name: "name" },
                     domProps: { value: _vm.param.name },
                     on: {
                       input: function($event) {
@@ -12433,12 +12435,7 @@ var render = function() {
                         expression: "param.age"
                       }
                     ],
-                    attrs: {
-                      type: "text",
-                      id: "age",
-                      name: "age",
-                      required: ""
-                    },
+                    attrs: { type: "text", id: "age", name: "age" },
                     domProps: { value: _vm.param.age },
                     on: {
                       input: function($event) {
@@ -15449,15 +15446,30 @@ function listToStyles (parentId, list) {
 const uiForm = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('ui-form', {
     props: ['name'],
     template: ' <form novalidate :name="name"><slot></slot></form>',
+    methods: {
+        updateValid() {}
+    },
+    beforeCreate: function () {},
     mounted: function () {
         var _this = this;
+        _this.$valid = {
+            [_this.name]: {
+                "valid": false
+            }
+        };
+        _this.updateValid();
         $$('form[name="' + this.name + '"]').bind('submit', function () {
-
-            console.log(_this);
-
-            //如果合法提交
-            _this.$emit('triggerSubmit', _this.name);
+            if (_this.$valid[_this.name].valid) {
+                //如果合法提交
+                _this.$emit(_this.name + 'Submit');
+            } else {
+                //提示错误信息
+                console.log(_this.$valid);
+            }
         });
+    },
+    updated: function () {
+        this.updateValid();
     }
 });
 
