@@ -5,8 +5,11 @@ import App from './App.vue';
 import router from './router';
 
 // 过滤器
-import './filter/numberChineseFtr';
-import './filter/moneyUpFtr';
+import './module/filter/numberChineseFtr';
+import './module/filter/moneyUpFtr';
+
+// 组件
+import './module/component/ui-form';
 
 var vm = new Vue({
     el: '#root',
