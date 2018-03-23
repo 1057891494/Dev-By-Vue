@@ -15456,7 +15456,7 @@ function listToStyles (parentId, list) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 
 
-const uiForm = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('ui-form', {
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('ui-form', {
     props: ['name'],
     template: ' <form novalidate :name="name"><slot></slot></form>',
     methods: {

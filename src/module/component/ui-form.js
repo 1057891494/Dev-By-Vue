@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-const uiForm = Vue.component('ui-form', {
+Vue.component('ui-form', {
     props: ['name'],
     template: ' <form novalidate :name="name"><slot></slot></form>',
     methods: {
