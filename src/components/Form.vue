@@ -7,15 +7,15 @@
                     <div class="row">
                         <div class="col-md-6" v-star>
                             <label for="idcard">身份证</label>
-                            <input type="text" id="idcard" name='idcard' v-model='param.idcard' required/>
+                            <input valid-scope type="text" id="idcard" name='idcard' v-model='param.idcard' required/>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" v-star>
                             <label for="name">姓名</label>
-                            <input type="text" id="name" name='name' v-model='param.name'/>
+                            <input valid-scope type="text" id="name" name='name' v-model='param.name' required/>
                         </div>
                         <div class="col-md-6">
                             <label for="age">年龄</label>
-                            <input type="text" id="age" name='age' v-model='param.age'/>
+                            <input valid-scope type="text" id="age" name='age' v-model='param.age'/>
                         </div>
                     </div>
                 </div>
