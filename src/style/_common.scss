@@ -1,0 +1,14 @@
+label {
+    position: relative;
+    padding-right: .8em;
+    &.required {
+        &:after {
+            content: "*";
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: inline-block;
+            color: red;
+        }
+    }
+}

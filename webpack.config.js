@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 module.exports = {
-    entry: ['./src/main.js'],
+    entry: ['./src/main.js','./src/style/root.scss'],
     output: {
         path: __dirname,
         filename: 'build/main.js'
@@ -23,7 +23,7 @@ module.exports = {
             },
             {
                 test: /\.(scss|css)$/,
-                loaders: ['style', 'css', 'sass']
+                loaders: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
                 test: /\.(png)|(jpg)$/,

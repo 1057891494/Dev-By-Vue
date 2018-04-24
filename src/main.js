@@ -11,6 +11,9 @@ import './module/filter/moneyUpFtr';
 // 组件
 import './module/component/ui-form';
 
+// 指令
+import './module/directive/v-star';
+
 var vm = new Vue({
     el: '#root',
     render: function(callback) { return callback(App); },
